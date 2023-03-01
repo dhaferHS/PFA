@@ -1,10 +1,8 @@
-
-images.images
+head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   meta(http-equiv='X-UA-Compatible' content='ie=edge')
   link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap' rel='stylesheet')
-  title Slider
   style.
     *,
     *:before,
@@ -22,6 +20,9 @@ images.images
     html {
     font-size: 57%;
     }
+    }
+    body {
+    padding: 8rem;
     }
     @media only screen and (max-width: 1000px) {
     body {
@@ -59,27 +60,12 @@ images.images
     overflow: hidden;
     position: relative;
     }
-    @media only screen and (max-width: 650px) {
-    .slider .box {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    }
-    }
     .slider .box .bg {
     padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.2);
     width: 55%;
-    transform: skewX(7deg);
-    position: absolute;
     height: 100%;
     left: -10%;
     padding-left: 20rem;
-    transform-origin: 0 100%;
-    }
-    @media only screen and (max-width: 800px) {
-    .slider .box .bg {
-    width: 65%;
-    }
     }
     @media only screen and (max-width: 650px) {
     .slider .box .bg {
@@ -90,181 +76,65 @@ images.images
     transform: skewX(0deg);
     }
     }
-    .slider .box .bg::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: inherit;
-    pointer-events: none;
-    transform: skewX(10deg);
-    }
-    @media only screen and (max-width: 650px) {
-    .slider .box .bg::before {
-    width: 120%;
-    bottom: 0;
-    transform: skewX(0deg);
-    }
-    }
-    .slider .box .details {
-    padding: 5rem;
-    padding-left: 10rem;
-    z-index: 100;
-    grid-column: 1 / span 1;
-    grid-row: -1;
-    }
-    @media only screen and (max-width: 650px) {
-    .slider .box .details {
-    grid-row: 2 / span 1;
-    grid-column: -1;
-    text-align: center;
-    padding: 2rem;
-    transform: translateY(-9rem);
-    }
-    }
-    .slider .box .details h1 {
-    font-size: 3.5rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    }
-    .slider .box .details p {
-    display: inline-block;
-    font-size: 1.3rem;
-    color: #b5b4b4;
-    margin-bottom: 2rem;
-    margin-right: 5rem;
-    }
-    @media only screen and (max-width: 800px) {
-    .slider .box .details p {
-    margin-right: 0;
-    }
-    }
-    .slider .box .details button {
-    padding: 1rem 3rem;
-    color: #fff;
-    border-radius: 2rem;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    }
-    .slider .box .details button:hover {
-    opacity: 0.8;
-    }
-    .slider .box .details button:focus {
-    outline: none;
-    border: none;
-    }
     .slider .box1 {
-    background-color: #500033;
-    }
-    .slider .box1 .illustration .inner {
-    background-color: #f07;
-    }
-    .slider .box1 .illustration .inner::after,
-    .slider .box1 .illustration .inner::before {
-    background-color: rgba(255, 0, 119, 0.4);
-    }
-    .slider .box1 button {
-    background-color: #f07;
-    }
-    .slider .box2 {
-    background-color: #000050;
-    }
-    .slider .box2 .illustration .inner {
-    background-color: #03f;
-    }
-    .slider .box2 .illustration .inner::after,
-    .slider .box2 .illustration .inner::before {
-    background-color: rgba(0, 51, 255, 0.4);
-    }
-    .slider .box2 button {
-    background-color: #03f;
-    }
-    .slider .box3 {
-    background-color: #00501d;
-    }
-    .slider .box3 .illustration .inner {
-    background-color: #0f4;
-    }
-    .slider .box3 .illustration .inner::after,
-    .slider .box3 .illustration .inner::before {
-    background-color: rgba(0, 255, 68, 0.4);
-    }
-    .slider .box3 button {
-    background-color: #0f4;
-    }
-    .slider .box4 {
-    background-color: #554d00;
-    }
-    .slider .box4 .illustration .inner {
-    background-color: #ff4e00;
-    }
-    .slider .box4 .illustration .inner::after,
-    .slider .box4 .illustration .inner::before {
-    background-color: rgba(255, 78, 0, 0.4);
-    }
-    .slider .box4 button {
-    background-color: #ff4e00;
-    }
-    .slider .box5 {
-    background-color: #300050;
-    }
-    .slider .box5 .illustration .inner {
-    background-color: #8000ff;
-    }
-    .slider .box5 .illustration .inner::after,
-    .slider .box5 .illustration .inner::before {
-    background-color: rgba(128, 0, 255, 0.4);
-    }
-    .slider .box5 button {
-    background-color: #8000ff;
-    }
-    .slider .illustration {
-    grid-column: -2;
-    grid-row: -1;
-    justify-self: center;
-    }
-    @media only screen and (max-width: 650px) {
-    .slider .illustration {
-    grid-row: 1 / span 1;
-    grid-column: -1;
-    display: flex;
+    height: 100%;
+    width: 100%;
+    background-image: url("Image-1.jpg");
+    background-size: cover;
+    display: grid;
     justify-content: center;
     align-items: center;
+    background-position: center;
+    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr);
     }
-    }
-    .slider .illustration div {
-    height: 25rem;
-    width: 18rem;
-    border-radius: 3rem;
-    background-color: #f07;
-    position: relative;
-    transform: skewX(-10deg);
-    }
-    @media only screen and (max-width: 800px) {
-    .slider .illustration div {
-    height: 20rem;
-    width: 15rem;
-    }
-    }
-    .slider .illustration div::after,
-    .slider .illustration div::before {
-    content: "";
-    position: absolute;
+    .slider .box2 {
     height: 100%;
     width: 100%;
-    border-radius: 3rem;
-    top: 0;
-    left: 0;
+    background-image: url("Image-2.jpg");
+    background-size: cover;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr);
     }
-    .slider .illustration div::after {
-    transform: translate(4rem, -1rem);
+    .slider .box3 {
+    height: 100%;
+    width: 100%;
+    background-image: url("Image-3.jpg");
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr);
     }
-    .slider .illustration div::before {
-    transform: translate(2rem, -2rem);
+    .slider .box4 {
+    height: 100%;
+    width: 100%;
+    background-image: url("image-4.jpg");
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr);
+    }
+    .slider .box5 {
+    width: 100%;
+    height: 100%;
+    background-image: url("Image-5.jpg");
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr);
     }
     .prev,
     .next,
@@ -334,64 +204,32 @@ images.images
     .active {
     opacity: 1 !important;
     }
-    .container {
-      margin-top : 70px;
-    }
+  title Slider
 .container
   .slider
     .box1.box
       .bg
       .details
-        h1 I&apos;m the first Box
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          | lacinia dui lectus. Donec scelerisque ipsum diam, ac mattis orci
-          | pellentesque eget.
-        button Check Now
       .illustration
         .inner
     .box2.box
       .bg
       .details
-        h1 I&apos;m the second Box
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          | lacinia dui lectus. Donec scelerisque ipsum diam, ac mattis orci
-          | pellentesque eget.
-        button Check Now
       .illustration
         .inner
     .box3.box
       .bg
       .details
-        h1 I&apos;m the third Box
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          | lacinia dui lectus. Donec scelerisque ipsum diam, ac mattis orci
-          | pellentesque eget.
-        button Check Now
       .illustration
         .inner
     .box4.box
       .bg
       .details
-        h1 I&apos;m the fourth Box
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          | lacinia dui lectus. Donec scelerisque ipsum diam, ac mattis orci
-          | pellentesque eget.
-        button Check Now
       .illustration
         .inner
     .box5.box
       .bg
       .details
-        h1 I&apos;m the fifth Box
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          | lacinia dui lectus. Donec scelerisque ipsum diam, ac mattis orci
-          | pellentesque eget.
-        button Check Now
       .illustration
         .inner
   svg.prev(xmlns='http://www.w3.org/2000/svg' width='56.898' height='91' viewbox='0 0 56.898 91')
@@ -406,4 +244,4 @@ images.images
     .box5 5
 script(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js')
 script(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js')
-script(src='/js/script.js')
+script(src='script.js')

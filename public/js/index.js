@@ -1,20 +1,17 @@
 /* eslint-disable */
 import '@babel/polyfill';
 import { displayMap } from './mapbox';
-import { login } from './login';
+import { login, logout } from './login';
 
 // dom element 
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form');
-
+const logOutBtn = document.querySelector('.nav__el--logout');
 // delegation
 if (mapBox) {
   const locations = JSON.parse(mapBox.dataset.locations);
   displayMap(locations);
-} else {
-  console.error('No map element found in the HTML');
 }
-
 if (loginForm) {
   loginForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -23,6 +20,5 @@ if (loginForm) {
 
     login(email, password);
   });
-} else {
-  console.error('No login form element found in the HTML');
 }
+if (logOutBtn) logOutBtn.addEventListener('click', logout);
