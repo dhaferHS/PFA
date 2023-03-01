@@ -100,21 +100,21 @@ exports.getMonthlyPlan = catchAsync(async (req, res, next) => {
 // '/tours-within/:distance/center/:latlang/unit/:unit',
 
 exports.getToursWithin = catchAsync(async (req, res, next) => {
-  const { distance, latlang, unit } = req.params;
-  const [lat, lang] = latlang.split(',');
+  const { distance, latlng, unit } = req.params;
+  const [lat, lng] = latlng.split(',');
   const radius = unit === 'km' ? distance / 6378.14 : distance / 3963.2;
 
-  if (!lat || !lang) {
+  if (!lat || !lng) {
     next(
       new AppError(
-        'please provide latitude and longitude in the format lat, lang',
+        'please provide latitude and longitude in the format lat, lng',
         400
       )
     );
   }
 
   const tours = await Tour.find({
-    startLocation: { $geoWithin: { $centerSphere: [[lang, lat], radius] } },
+    startLocation: { $geoWithin: { $centerSphere: [[lng, lat], radius] } },
   });
   res.status(200).json({
     status: 'success',
@@ -125,24 +125,24 @@ exports.getToursWithin = catchAsync(async (req, res, next) => {
   });
 });
 exports.getDistances = catchAsync(async (req, res, next) => {
-  const { latlang } = req.params;
-  const [lat, lang] = latlang.split(',');
+  const { latlng } = req.params;
+  const [lat, lng] = latlng.split(',');
 
-  if (!lat || !lang) {
+  if (!lat || !lng) {
     next(
       new AppError(
-        'please provide latitude and longitude in the format lat, lang',
+        'please provide latitude and longitude in the format lat, lng',
         400
       )
     );
   }
-  console.log(lat, lang);
+  console.log(lat, lng);
   const distances = await Tour.aggregate([
     {
       $geoNear: {
         near: {
           type: 'Point',
-          coordinates: [+lang, +lat * 1],
+          coordinates: [+lng, +lat * 1],
         },
         distanceField: 'distance',
         distanceMultiplier: 0.001,
