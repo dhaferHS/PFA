@@ -15,13 +15,13 @@ const slide = (condition) => {
 
 const initiateINC = () => {
   trail.forEach((cur) => cur.classList.remove("active"));
-  value === 80 ? (value = 0) : (value += 20);
+  value === 160 ? (value = 0) : (value += 20);
   trailUpdate();
 };
 
 const initiateDEC = () => {
   trail.forEach((cur) => cur.classList.remove("active"));
-  value === 0 ? (value = 80) : (value -= 20);
+  value === 0 ? (value = 160) : (value -= 20);
   trailUpdate();
 };
 

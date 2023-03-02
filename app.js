@@ -13,6 +13,7 @@ const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const viewRouter = require('./routes/viewRoutes');
+const { use } = require('./routes/viewRoutes');
 
 const app = express();
 
@@ -46,6 +47,7 @@ app.use(
     limit: '10kb',
   })
 );
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 
 //data sanitization against NoSQL query injection
